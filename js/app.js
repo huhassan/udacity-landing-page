@@ -56,6 +56,8 @@ buildNav();
 // observer function to detect which section is on the viewport.
 
 // creating an instance of the Intersection Observer API
+// https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+
 const observer = new IntersectionObserver(
   // passing sections being viewed on the viewport and looping through them.
   function (entries, observer) {
