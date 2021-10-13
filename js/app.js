@@ -84,8 +84,30 @@ sections.forEach(section => {
   observer.observe(section);
 });
 
+// check if section is in viewport
+function sectionInViewPort(section) {
+  let sectionPlace = section.getBoundingClientRect();
+  console.log(sectionPlace);
+  return sectionPlace.top < 100 && sectionPlace.bottom > 0;
+}
+
+// add active class to section being viewed
+function toggleActiveClass() {
+  for (section of sections) {
+    if (sectionInViewPort(section)) {
+      section.classList.add("your-active-class");
+    } else {
+      section.classList.remove("your-active-class");
+    }
+  }
+}
+
 /**
  * End Helper Functions
  * Begin Events
  *
  */
+
+// run toggleActiveClass function on scroll
+// adding scroll event to window object
+window.addEventListener("scroll", toggleActiveClass);
